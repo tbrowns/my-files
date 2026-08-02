@@ -19,21 +19,12 @@ The paper supplies specialised information the model can use as a **hint or scaf
 
 ---
 
-## 2. The difficulty target ("In Distribution")
+## 2. Calibrating difficulty (too easy / too hard)
 
-Three model run sets, each attempting the task 8 times (16 in Biology):
+The difficulty target is defined in §1: without the paper the model almost never solves the task; with the paper it solves it sometimes but not always. When a task misses that target, adjust the reasoning load — not the obscurity:
 
-| Run | Access | Standard target | Biology target | Meaning |
-|---|---|---|---|---|
-| **Baseline** | No paper, no web | **0–1 / 8** correct | **0–2 / 16** | Model rarely solves without the paper |
-| **With Paper** | PDF of the paper | **2–7 / 8** correct | **3–13 / 16** | Model sometimes (not always) solves with the paper |
-| **With Web Search** | Web only | No requirement | No requirement | Informational only |
-
-- **Both** baseline and with-paper targets must be met to submit. The platform shows **"In Distribution"** in green when both pass.
 - **8/8 with paper → under-stumped.** Add a reasoning step (Section 5). Do **not** just make it more obscure.
-- **0/8 with paper → over-stumped or unclear.** Add a strategic hint, simplify one reasoning step, or fix ambiguity. Inspect model transcripts to see where reasoning breaks.
-- Editing the **prompt field** after runs **invalidates all runs** — you must re-run all three sets. Up to **3 error runs** per set are tolerated if the rest are In Distribution.
-- Explanation, notes, and reference-location fields can be edited **without** re-running — use them freely after runs (e.g. to record observed wrong answers). Treat **golden-response** changes like prompt changes: re-run everything.
+- **0/8 with paper → over-stumped or unclear.** Add a strategic hint, simplify one reasoning step, or fix ambiguity. Inspect model transcripts to see where the reasoning breaks.
 
 ---
 
@@ -88,8 +79,6 @@ The paper should get the with-paper model **part way** — an advantage over bas
 5. **Cross boundaries between disciplines or scales** — connect two compartments the model keeps separate (horizontal across subfields, or vertical across scales).
 6. **Leverage your expertise** — write what only a specialist could formulate. If an intelligent non-specialist could write or answer it, it is probably too easy (especially "plug into a template" calculations).
 
-> If still stuck after trying 3 strategies, post in the domain Slack channel with the task number and what you tried.
-
 ---
 
 ## 6. Task components
@@ -107,9 +96,9 @@ Every prompt has **three parts**:
 ### 7.1 Reference article
 
 - Source is **arXiv, bioRxiv, or medRxiv only**.
-- Each paper used for **one task only** (run **URL Uniqueness** → must show "Unique"; run **DOI validation** → green tick).
+- Each paper used for **one task only**.
 - Up to **2 articles** per task.
-- PDF **under 100 pages**, **unaltered**, uploaded to Task Input Files.
+- PDF **under 100 pages**, **unaltered**.
 
 ### 7.2 Prompt
 
@@ -119,9 +108,9 @@ Every prompt has **three parts**:
 - **Completely unambiguous** — only one defensible interpretation. State every required assumption/variable.
 - **No undefined non-standard terminology (hard rule).** Every term, symbol, or named notion that is not standard across the field must be **fully defined in the prompt**. Terminology coined by the reference paper or its recent predecessors is **never** "standard," however natural it feels after reading the paper. Run the check: if a notion was introduced in the last few years and has only a handful of citations, it must be defined verbatim in the prompt or replaced by neutral notation defined there. A prompt that cannot even be *understood* without the paper is, in effect, dependent on the paper and fails self-containment — regardless of whether all numerical inputs are present.
 - **Requires reasoning**, not just extraction.
+- **Not resolvable by web search.** The answer must not be locatable via an ordinary web search or in a public dataset. A question a search engine can answer directly is testing recall, not reasoning.
 - **Solvable without the paper**, even if very difficult (all needed numerical values stated in the prompt, **not** left for the model to pull from figures/tables).
 - Contains **all answer-formatting requirements** with enough detail for an **exact string match**. Specify order if multiple values; specify units policy, sig figs, spacing, and exact form. Example directive: *"Answer in mg as a single integer to 2 significant figures, do not include units. Provide answers in alphabetical order, separated by a comma and space."*
-- Must **pass the Task Similarity Check** (unlocks golden response + model runs).
 
 ### 7.3 Golden response
 
@@ -146,14 +135,6 @@ Every prompt has **three parts**:
 - Specify the exact **page, figure, table, equation, or section** where relevant data appears.
 - Plain text is fine (no LaTeX needed).
 - Include anything else that helps the reviewer confirm the answer (normalization conventions, characteristic wrong answers, cross-checks).
-
-### 7.6 Other supporting fields
-
-- **Task Author:** exact RLS name (e.g. "EXP Melissa H").
-- **Source Content Intact:** Yes (prompt does not contradict/modify the paper).
-- **Answerable without paper:** confirmed.
-- **Tool Use flag:** TRUE if solving needs Python/equivalent; FALSE if standard STEM reasoning suffices.
-- **QA Job Report:** run it, then address (thumbs-up → fix → re-run) or dispute (thumbs-down → reason) every flag. For Reward Hacking Detection, thumbs-down with "This is an intentional part of task design."
 
 ---
 
@@ -194,12 +175,7 @@ If a **full expression** is unavoidable: define all variables/parameters/functio
 
 Work through these in order. For each item, state **pass / fail / judgment call** and, on any fail, give the concrete fix. The order roughly follows the official reviewer workflow.
 
-### Step A — Reference article
-- [ ] Source is arXiv / bioRxiv / medRxiv only.
-- [ ] PDF < 100 pages, unaltered.
-- [ ] (If checkable) URL uniqueness "Unique", DOI green. *(Often not visible from text alone — note as "verify on platform.")*
-
-### Step B — Prompt
+### Step A — Prompt
 - [ ] Ends in a **single interrogative question**.
 - [ ] Not true/false, multiple-choice, or "Explain".
 - [ ] **Unambiguous** — only one defensible interpretation; hunt for any second reading and close it.
@@ -207,12 +183,13 @@ Work through these in order. For each item, state **pass / fail / judgment call*
 - [ ] **No undefined coined terminology** — every non-standard term/symbol is defined in the prompt or replaced by neutral in-prompt notation; notions coined by the reference paper (or its recent, low-citation predecessors) never count as standard.
 - [ ] **Requires reasoning**, not extraction (apply the Gut Check).
 - [ ] **Solvable without the paper** in principle (however hard).
+- [ ] **Not resolvable by web search** / not sitting in a public dataset.
 - [ ] Answer format fully specified: units policy, sig figs, ordering, spacing, exact form — enough for an exact string match.
 - [ ] LaTeX uses only `$`/`$$`; no `\(...\)`, `\[...\]`; `\%` escaped; no new macros; no numbered equations.
 - [ ] Prose in the prompt renders cleanly on the platform (avoid `\texttt`, `\textbf`, `enumerate`, `~` if the field is plain-ish — prefer plain lists and plain text).
 - [ ] Word count roughly in range (≈300; more is fine if needed for disambiguation — **do not** sacrifice clarity for brevity).
 
-### Step C — Golden response
+### Step B — Golden response
 - [ ] ≤ 60 characters.
 - [ ] Integer / reduced fraction / radical only if numeric; **no decimals**.
 - [ ] ≤ 4 significant figures, **and every integer has at most 4 digits** — including all fraction numerators and denominators and all tuple entries; **no exemption for exact fractions**.
@@ -220,7 +197,7 @@ Work through these in order. For each item, state **pass / fail / judgment call*
 - [ ] Not a disallowed common value.
 - [ ] **Exact-string identical** to the form the prompt demands (spacing, delimiters, sign convention, no `\boxed`, no trailing text).
 
-### Step D — Explanation & reasoning chain
+### Step C — Explanation & reasoning chain
 - [ ] Expected failure is **Tier 3** (reasoning breakdown), not Tier 2 (arithmetic/knowledge slip). If the only plausible failure is a slip, the task needs more reasoning load.
 - [ ] Every intermediate step shown, with **why**.
 - [ ] **No rounded intermediates** — full precision throughout.
@@ -231,14 +208,7 @@ Work through these in order. For each item, state **pass / fail / judgment call*
 - [ ] **Diagram-dependent claims verified at the diagram level** — if the paper's figures or displayed relations are vector graphics that text extraction silently drops, render the page; never infer which numbered relation/figure is which from surrounding prose alone. *(See Section 10, issue 5.)*
 - [ ] Independently **recompute the answer** (by hand or code) rather than trusting the write-up.
 
-### Step E — Supporting fields
-- [ ] Reference location is **specific** (page/figure/table/equation/section).
-- [ ] Notes flag characteristic wrong answers and any normalization conventions.
-- [ ] Tool Use flag matches reality (Python needed → TRUE).
-- [ ] Task Author exact; Source Content Intact; Answerable-without-paper confirmed.
-- [ ] QA flags addressed or disputed with documented reasoning.
-
-### Step F — Difficulty sanity check
+### Step D — Difficulty sanity check
 - [ ] Predict roughly where runs will land. If it looks like 8/8 with paper, recommend a complexity lever (Section 5). If 0/8, recommend a hint or a de-ambiguation.
 - [ ] Confirm the paper genuinely **helps** the with-paper model (gives a scaffold) without **handing over** the answer.
 - [ ] After runs come back: check **why** the pass/fail split occurs — the score variance should come from the intended reasoning steps (the traps you designed), not from an ambiguity splitting two readings of the prompt. Read a passing and a failing transcript side by side.
@@ -306,7 +276,6 @@ This is a real, verified task. Use it as the model of what "good" looks like, an
 - **Explanation speculates about model behavior** or catalogs distractors instead of arguing for the answer.
 - **Intermediate steps rounded** (must carry full precision).
 - **LaTeX guidelines not followed.**
-- **Tool Use flag wrong** (needs Python but set FALSE).
 
 ---
 
@@ -315,30 +284,29 @@ This is a real, verified task. Use it as the model of what "good" looks like, an
 ```
 TASK: <id / short name>   PAPER: <source, arXiv id>
 
-A. Reference article ....... pass / fail / verify-on-platform — notes:
-B. Prompt
+A. Prompt
    - ends in a question ..... pass / fail
    - unambiguous ........... pass / fail   (second readings?)
    - values self-contained . pass / fail
    - no undefined coined terms pass / fail
    - requires reasoning ..... pass / fail   (Gut Check)
    - solvable w/o paper ..... pass / fail
+   - not searchable online .. pass / fail
    - format fully specified . pass / fail
    - LaTeX delimiters/macros. pass / fail
-C. Golden response
+B. Golden response
    - ≤60 chars, exact form .. pass / fail
    - integer/fraction/radical pass / fail
    - ≤4 sig figs, all ints ≤4 digits pass / fail
    - no units, not disallowed pass / fail
-D. Explanation
+C. Explanation
    - Tier 3 failure targeted. pass / fail
    - all steps + why ........ pass / fail
    - no rounded intermediates pass / fail
    - internally consistent .. pass / fail   (claims match prompt?)
    - no model-behavior speculation pass / fail
    - answer independently recomputed: <result> == golden? Y/N
-E. Supporting fields ........ pass / fail — notes:
-F. Difficulty prediction ..... likely baseline __/8, with-paper __/8; lever if needed:
+D. Difficulty prediction ..... likely baseline __/8, with-paper __/8; lever if needed:
 
 VERDICT: ready / fix-then-ready / needs-rework
 TOP FIXES: 1) ... 2) ... 3) ...
@@ -416,7 +384,7 @@ A single divergence is often a Tier-2 slip. A **Tier-3 chain collapse** needs th
 - [ ] The failure is **fair**: an expert seeing only the prompt + paper reaches the answer and calls the failure reasonable (not a strict-terminology gotcha — `strategies.md`).
 - [ ] Arithmetic is **light** — the load is in the reasoning, human-solvable without Mathematica (`strategies.md`, Computational Scope).
 - [ ] Does **not** reuse a failure axis already spent on another task (`strategies.md`, Failure Exploitation).
-- [ ] Predicted split lands **2–7/8** with a known margin; the intended reasoning steps — not an ambiguity — produce the variance (§9 Step F).
+- [ ] Predicted split lands **2–7/8** with a known margin; the intended reasoning steps — not an ambiguity — produce the variance (§9 Step D).
 
 ---
 
@@ -426,12 +394,10 @@ A single divergence is often a Tier-2 slip. A **Tier-3 chain collapse** needs th
 - **Target Tier 3.** A slip is not a win.
 - **Exact string or it's wrong.** Spacing, delimiters, sign, no `\boxed`.
 - **Full precision in the explanation.** No rounded intermediates.
-- **Editing the prompt = re-run all models.** Batch prompt edits.
 - **Check the explanation's claims against the prompt itself.**
 - **Verify diagram claims at the diagram level.** Text extraction drops figures silently.
 - **Check why runs split.** In Distribution via ambiguity is not really In Distribution.
 - **Pick papers where the key content is stated once, not everywhere.** Text-redundant references cap the reasoning gap.
-- **After runs, free fields first.** Explanation/notes edits cost nothing; prompt edits cost a full re-run.
 - **Four digits max.** Every integer in the answer — numerators and denominators included. No exact-fraction exemption.
 - **Define every coined term.** Paper jargon is never "standard."
 - **Explanations argue; notes catalog.** Wrong answers and their mechanisms go in the notes field, never the explanation.

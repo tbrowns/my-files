@@ -1,0 +1,112 @@
+- Conventions. Types are labelled by rank, so $A_m$ has $m$ nodes and is the Coxeter group of the symmetric group on $m+1$ letters. The reference classifies type $A$ in the form $\mathscr{D}_F(A_{n-1})$ with conditions on $n$, so a group of type $A_m$ corresponds to $n=m+1$ there. A partition is called $p$-regular if no part is repeated $p$ or more times.
+
+- The counting principle for simple modules. The radical of $\mathscr{D}_F(W)$ is spanned by the elements $x_J-x_K$ for $J,K$ conjugate in $W$ together with the elements $x_L$ for which $p$ divides $[\mathrm{N}_W(W_L):W_L]$, and the simple modules are one-dimensional. Consequently the isomorphism classes of simple $\mathscr{D}_F(W)$-modules are in bijection with the $W$-conjugacy classes of standard parabolic subgroups $W_J$ such that $p\nmid[\mathrm{N}_W(W_J):W_J]$. All four counts below follow from this one principle together with the normaliser indices recalled next.
+
+- Type $A_m$. Conjugacy classes of standard parabolic subgroups of the symmetric group on $m+1$ letters correspond to partitions of $m+1$ (the multiset of block sizes), and if such a partition has $a_i$ parts equal to $i$ then $[\mathrm{N}_W(W_J):W_J]=\prod_i a_i!$. Hence $p\nmid[\mathrm{N}_W(W_J):W_J]$ if and only if every $a_i<p$, that is, if and only if the partition is $p$-regular, and $s=\#\{p\text{-regular partitions of }m+1\}$. For $A_3$ ($m+1=4$) this gives $2,4,5,5$ at $p=2,3,5,7$; for $A_5$ ($m+1=6$) it gives $4,7,10,11$.
+
+- Type $B_n$. Conjugacy classes of standard parabolic subgroups correspond to partitions of size at most $n$, and if such a partition has $a_i$ parts equal to $i$ and has $t$ parts in total then $[\mathrm{N}_W(W_K):W_K]=2^{t}\prod_i a_i!$. For odd $p$ the factor $2^{t}$ is a unit modulo $p$, so the condition $p\nmid[\mathrm{N}_W(W_K):W_K]$ reduces to $p$-regularity and $s$ is the number of $p$-regular partitions of size at most $n$: for $B_2$ this gives $4,4,4$ at $p=3,5,7$, and for $B_5$ it gives $15,18,19$. For $p=2$ the factor $2^{t}$ is decisive: $2\nmid 2^{t}\prod_i a_i!$ forces $t=0$, so the empty partition is the only surviving class and $s=1$ for every $n$. This is consistent with the reference, where the Ext-quiver of $\mathscr{D}_F(B_n)$ at $p=2$ is shown to be a single vertex with at least $n$ loops, and where $\mathscr{D}_F(B_2)$ at $p=2$ is shown to have a unique simple module. Hence $s(B_2,2)=s(B_5,2)=1$.
+
+- Type $D_n$. Here the classes of standard parabolic subgroups are indexed by the set consisting of all partitions of size at most $n-2$, together with all partitions of $n$ having at least one odd part, together with two copies $(\lambda,+)$ and $(\lambda,-)$ of each partition $\lambda$ of $n$ all of whose parts are even; note that partitions of size exactly $n-1$ do not occur. If the associated partition has $m_i$ parts equal to $i$ then $[\mathrm{N}_W(W_K):W_K]=a\prod_i m_i!\,2^{m_i}$, where $a=\tfrac12$ when the partition is a partition of $n$ with an odd part and $a=1$ otherwise. For odd $p$ neither $a$ nor the factors $2^{m_i}$ affect divisibility by $p$, so the surviving classes are exactly the $p$-regular members of that indexing set, the two-element families $(\lambda,\pm)$ each contributing $2$. This gives $s(D_4,3)=10$, $s(D_4,5)=s(D_4,7)=11$, $s(D_6,3)=19$, $s(D_6,5)=25$ and $s(D_6,7)=26$. For $p=2$ the factors $2^{m_i}$ again collapse the set: only the empty partition survives when $n$ is even, and only the empty partition together with the one-part partition $(n)$ survives when $n$ is odd. Hence $s(D_4,2)=s(D_6,2)=1$.
+
+- Cross-check of the counts. For a group of type $B_4$ the above gives $12$ classes at $p\ge5$ and $10$ at $p=3$; the reference exhibits $\mathscr{D}_F(B_4)$ as a path algebra with $12$ vertices and $4$ arrows at $p\ge5$ and with $10$ vertices and $6$ arrows at $p=3$, and $12+4=10+6=16=\dim\mathscr{D}_F(B_4)$. For type $B_5$ the above gives $19$ classes at $p\ge7$ and $18$ at $p=5$, matching the stated vertex counts $19$ and $18$ there. For type $D_4$ at $p\ge5$ the above gives $11$ classes, and the reference computes the radical of $\mathscr{D}_F(D_4)$ to be $5$-dimensional with the algebra isomorphic to the path algebra of its Ext-quiver, so $11+5=16=\dim\mathscr{D}_F(D_4)$. Every value used below was in addition confirmed by direct computation inside the Coxeter group, enumerating the $2^{\,\mathrm{rank}}$ standard parabolic subgroups, grouping them into conjugation orbits and computing $[\mathrm{N}_W(W_J):W_J]$ by the orbit-stabiliser relation.
+
+- Representation types. Applying the classification of the reference: a descent algebra of type $A_{n-1}$ has finite representation type exactly when $p=2$ and $n\le3$, or $p=3$ and $n\le4$, or $p\ge5$ and $n\le5$, and is wild otherwise, so type $A$ is never tame. For type $A_3$ we have $n=4$, giving wild at $p=2$ and finite at $p=3,5,7$. For type $A_5$ we have $n=6$, giving wild at all four primes. A descent algebra of type $B_n$ has finite type when $p\ge3$ and $n\le4$, is tame when $p=2=n$, and is wild otherwise: so $B_2$ is tame at $p=2$ and finite at $p=3,5,7$, while $B_5$ is wild at all four primes. A descent algebra of type $D_n$ with $n\ge4$ is tame when $p\ge5$ and $n=4$, and wild otherwise: so $D_4$ is wild at $p=2,3$ and tame at $p=5,7$, while $D_6$ is wild at all four primes.
+
+- The three sums. The finite pairs are $A_3$ at $p=3,5,7$ contributing $4+5+5$ and $B_2$ at $p=3,5,7$ contributing $4+4+4$, so $f=14+12=26$. The tame pairs are $B_2$ at $p=2$ contributing $1$ and $D_4$ at $p=5,7$ contributing $11+11$, so $t=1+22=23$. The wild pairs are $A_3$ at $p=2$ contributing $2$; $A_5$ at all four primes contributing $4+7+10+11=32$; $B_5$ at all four primes contributing $1+15+18+19=53$; $D_4$ at $p=2,3$ contributing $1+10=11$; and $D_6$ at all four primes contributing $1+19+25+26=71$; so $w=2+32+53+11+71=169$. As a consistency check the three sums account for every pair once: $26+23+169=218$, which is the total of all twenty-four values.
+
+- The requested triple, in the exact required form, is $(26,23,169)$.
+
+- Verification code:
+
+```python
+from functools import lru_cache
+from collections import Counter
+from itertools import combinations
+
+@lru_cache(None)
+def parts(n, cap=None):
+    if cap is None: cap = n
+    if n == 0: return ((),)
+    o = []
+    for a in range(min(n, cap), 0, -1):
+        for r in parts(n-a, a): o.append((a,)+r)
+    return tuple(o)
+preg = lambda l, p: all(c < p for c in Counter(l).values())
+
+def s_A(m, p): return sum(1 for l in parts(m+1) if preg(l, p))
+def s_B(n, p):
+    if p == 2: return 1
+    return sum(1 for k in range(n+1) for l in parts(k) if preg(l, p))
+def s_D(n, p):
+    if p == 2: return 1 if n % 2 == 0 else 2
+    t = sum(1 for k in range(n-1) for l in parts(k) if preg(l, p))
+    for l in parts(n):
+        if preg(l, p): t += 1 if any(x % 2 for x in l) else 2
+    return t
+
+def rt_A(m, p):
+    n = m + 1
+    return 'finite' if ((p==2 and n<=3) or (p==3 and n<=4) or (p>=5 and n<=5)) else 'wild'
+def rt_B(n, p):
+    if p >= 3 and n <= 4: return 'finite'
+    return 'tame' if (p == 2 and n == 2) else 'wild'
+def rt_D(n, p): return 'tame' if (p >= 5 and n == 4) else 'wild'
+
+S  = {'A': s_A,  'B': s_B,  'D': s_D}
+RT = {'A': rt_A, 'B': rt_B, 'D': rt_D}
+tot = {'finite':0, 'tame':0, 'wild':0}
+for fam, m in [('A',3),('A',5),('B',2),('B',5),('D',4),('D',6)]:
+    for p in (2,3,5,7):
+        tot[RT[fam](m,p)] += S[fam](m,p)
+assert (tot['finite'], tot['tame'], tot['wild']) == (26, 23, 169)
+assert sum(tot.values()) == 218
+
+# independent confirmation of every simple-module count inside the Coxeter group
+def cmp_(a, b, n):
+    return tuple((1 if b[i] > 0 else -1) * a[abs(b[i])-1] for i in range(n))
+def closure(gens, n):
+    idw = tuple(range(1, n+1))
+    if not gens: return {idw}
+    seen, fr = {idw}, [idw]
+    while fr:
+        nf = []
+        for x in fr:
+            for g in gens:
+                y = cmp_(g, x, n)
+                if y not in seen: seen.add(y); nf.append(y)
+        fr = nf
+    return seen
+def gens_of(fam, m):
+    sw = lambda i, n: tuple(list(range(1,i))+[i+1,i]+list(range(i+2,n+1)))
+    if fam == 'A': return [sw(i, m+1) for i in range(1, m+1)], m+1
+    if fam == 'B': return [tuple([-1]+list(range(2,m+1)))] + [sw(i,m) for i in range(1,m)], m
+    return [tuple([-2,-1]+list(range(3,m+1)))] + [sw(i,m) for i in range(1,m)], m
+def simples(fam, m, p):
+    S_, n = gens_of(fam, m); r = len(S_); Wsz = len(closure(S_, n))
+    def inv(w):
+        o = [0]*n
+        for i in range(n):
+            v = w[i]; o[abs(v)-1] = (i+1) if v > 0 else -(i+1)
+        return tuple(o)
+    classes = []
+    for k in range(r+1):
+        for J in combinations(range(r), k):
+            H = frozenset(closure([S_[i] for i in J], n))
+            if any(H in orb for orb, _ in classes): continue
+            orb, fr = {H}, [H]
+            while fr:
+                nf = []
+                for X in fr:
+                    for g in S_:
+                        gi = inv(g)
+                        Y = frozenset(cmp_(cmp_(g, x, n), gi, n) for x in X)
+                        if Y not in orb: orb.add(Y); nf.append(Y)
+                fr = nf
+            classes.append((orb, Wsz // (len(orb) * len(H))))
+    return sum(1 for _, i in classes if i % p != 0)
+
+for fam, m in [('A',3),('A',5),('B',2),('B',5),('D',4),('D',6)]:
+    for p in (2,3,5,7):
+        assert simples(fam, m, p) == S[fam](m, p), (fam, m, p)
+print(f"({tot['finite']},{tot['tame']},{tot['wild']})")   # -> (26,23,169)
+```
