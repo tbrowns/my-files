@@ -1,0 +1,6 @@
+Asset_ID,Asset_Name,Base_Class,Purchase_Cost,Date_Acquired,Status,Notes
+1001,Office Laptops (Batch 1),IT Equipment,50000.00,2025-01-01,Active,Standard configuration for corporate headquarters.
+1002,Custom Milling Machine,Heavy Machinery,140000.00,2025-01-01,Active,Heavily modified for proprietary production. Custom calibration voided standard warranty. See ECO-2025-017.
+1003,Enterprise Server Rack,Operating Lease,N/A,2025-01-01,Active,Master Lease ID 883. Expensed monthly.
+1004,Warehouse Forklift,Heavy Machinery,45000.00,2025-02-01,Active,Standard warehouse use.
+1005,Reception Desk,Office Furniture,3500.00,2025-03-01,Active,Custom wood finish.

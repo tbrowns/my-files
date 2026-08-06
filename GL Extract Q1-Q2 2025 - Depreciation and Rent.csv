@@ -1,0 +1,38 @@
+Period,Posting_Date,Account,Account_Description,Asset_ID,Line_Description,Debit_USD,Credit_USD
+2025-01,2025-01-31,64100,Depreciation Expense - IT Equipment,1001,Monthly depreciation - Office Laptops (Batch 1),833.33,0.00
+2025-01,2025-01-31,64200,Depreciation Expense - Machinery,1002,NO ENTRY POSTED - useful life determination outstanding pending Controller review of ECO-2025-017,0.00,0.00
+2025-01,2025-01-31,67500,Equipment Rent Expense,1003,Monthly rental - Master Lease ID 883,1000.00,0.00
+2025-01,2025-01-31,21100,Accrued Liabilities / Accumulated Depreciation (contra),,Offsetting credit for the above postings,0.00,1833.33
+2025-02,2025-02-28,64100,Depreciation Expense - IT Equipment,1001,Monthly depreciation - Office Laptops (Batch 1),833.33,0.00
+2025-02,2025-02-28,64200,Depreciation Expense - Machinery,1004,Monthly depreciation - Warehouse Forklift,535.71,0.00
+2025-02,2025-02-28,64200,Depreciation Expense - Machinery,1002,NO ENTRY POSTED - useful life determination outstanding pending Controller review of ECO-2025-017,0.00,0.00
+2025-02,2025-02-28,67500,Equipment Rent Expense,1003,Monthly rental - Master Lease ID 883,1000.00,0.00
+2025-02,2025-02-28,21100,Accrued Liabilities / Accumulated Depreciation (contra),,Offsetting credit for the above postings,0.00,2369.04
+2025-03,2025-03-31,64100,Depreciation Expense - IT Equipment,1001,Monthly depreciation - Office Laptops (Batch 1),833.33,0.00
+2025-03,2025-03-31,64200,Depreciation Expense - Machinery,1004,Monthly depreciation - Warehouse Forklift,535.71,0.00
+2025-03,2025-03-31,64300,Depreciation Expense - Furniture & Fixtures,1005,Monthly depreciation - Reception Desk,41.67,0.00
+2025-03,2025-03-31,64200,Depreciation Expense - Machinery,1002,NO ENTRY POSTED - useful life determination outstanding pending Controller review of ECO-2025-017,0.00,0.00
+2025-03,2025-03-31,67500,Equipment Rent Expense,1003,Monthly rental - Master Lease ID 883,1000.00,0.00
+2025-03,2025-03-31,21100,Accrued Liabilities / Accumulated Depreciation (contra),,Offsetting credit for the above postings,0.00,2410.71
+2025-04,2025-04-30,64100,Depreciation Expense - IT Equipment,1001,Monthly depreciation - Office Laptops (Batch 1),833.33,0.00
+2025-04,2025-04-30,64200,Depreciation Expense - Machinery,1004,Monthly depreciation - Warehouse Forklift,535.71,0.00
+2025-04,2025-04-30,64300,Depreciation Expense - Furniture & Fixtures,1005,Monthly depreciation - Reception Desk,41.67,0.00
+2025-04,2025-04-30,64200,Depreciation Expense - Machinery,1002,NO ENTRY POSTED - useful life determination outstanding pending Controller review of ECO-2025-017,0.00,0.00
+2025-04,2025-04-30,67500,Equipment Rent Expense,1003,Monthly rental - Master Lease ID 883,1000.00,0.00
+2025-04,2025-04-30,21100,Accrued Liabilities / Accumulated Depreciation (contra),,Offsetting credit for the above postings,0.00,2410.71
+2025-05,2025-05-31,64100,Depreciation Expense - IT Equipment,1001,Monthly depreciation - Office Laptops (Batch 1),833.33,0.00
+2025-05,2025-05-31,64200,Depreciation Expense - Machinery,1004,Monthly depreciation - Warehouse Forklift,535.71,0.00
+2025-05,2025-05-31,64300,Depreciation Expense - Furniture & Fixtures,1005,Monthly depreciation - Reception Desk,41.67,0.00
+2025-05,2025-05-31,64200,Depreciation Expense - Machinery,1002,NO ENTRY POSTED - useful life determination outstanding pending Controller review of ECO-2025-017,0.00,0.00
+2025-05,2025-05-31,67500,Equipment Rent Expense,1003,Monthly rental - Master Lease ID 883,1000.00,0.00
+2025-05,2025-05-31,21100,Accrued Liabilities / Accumulated Depreciation (contra),,Offsetting credit for the above postings,0.00,2410.71
+2025-06,2025-06-30,64100,Depreciation Expense - IT Equipment,1001,Monthly depreciation - Office Laptops (Batch 1),833.33,0.00
+2025-06,2025-06-30,64200,Depreciation Expense - Machinery,1004,Monthly depreciation - Warehouse Forklift,535.71,0.00
+2025-06,2025-06-30,64300,Depreciation Expense - Furniture & Fixtures,1005,Monthly depreciation - Reception Desk,41.67,0.00
+2025-06,2025-06-30,64200,Depreciation Expense - Machinery,1002,NO ENTRY POSTED - useful life determination outstanding pending Controller review of ECO-2025-017,0.00,0.00
+2025-06,2025-06-30,67500,Equipment Rent Expense,1003,Monthly rental - Master Lease ID 883,1000.00,0.00
+2025-06,2025-06-30,21100,Accrued Liabilities / Accumulated Depreciation (contra),,Offsetting credit for the above postings,0.00,2410.71
+
+MEMO,,,Total depreciation expense posted Q1-Q2 2025 (all assets),,,7845.21,
+MEMO,,,Total equipment rent expense posted Q1-Q2 2025,,,6000.00,
+MEMO,,,Asset 1002 depreciation posted Q1-Q2 2025,,,0.00,
